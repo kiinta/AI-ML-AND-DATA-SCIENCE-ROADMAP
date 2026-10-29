@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Your AI / ML / Data Science Roadmap</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Nunito+Sans:wght@400;600;700&display=swap">
+<style>
+:root{--bg:#f4f7ff;--card:#fff;--text:#1b2340;--muted:#5a6384;--line:#dbe2f5;--c1:#3b5bdb;--c2:#12b886;--c3:#f08c00;--c4:#e64980;--c5:#7048e8;--c6:#0c8599;color-scheme:light;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1325;--card:#171e38;--text:#e9edfb;--muted:#a3adcf;--line:#2a3459;--c1:#7c96ff;--c2:#38d9a9;--c3:#ffa94d;--c4:#ff8fb8;--c5:#a58bff;--c6:#3bc9db;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0e1325;--card:#171e38;--text:#e9edfb;--muted:#a3adcf;--line:#2a3459;--c1:#7c96ff;--c2:#38d9a9;--c3:#ffa94d;--c4:#ff8fb8;--c5:#a58bff;--c6:#3bc9db;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.65 "Nunito Sans",system-ui,sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque",system-ui,sans-serif;line-height:1.15;margin:0}
+.wrap{max-width:860px;margin:0 auto;padding:0 20px 60px}
+header{padding:48px 0 24px}
+header h1{font-size:clamp(2.2rem,7vw,3.8rem);font-weight:800;letter-spacing:-.02em}
+header p{max-width:56ch;color:var(--muted);font-size:1.1rem}
+.tag{display:inline-block;background:var(--card);border:1px solid var(--line);border-radius:99px;padding:4px 14px;font-weight:700;font-size:.9rem;margin:6px 6px 0 0}
+section{margin-top:44px}
+h2{font-size:1.7rem;margin-bottom:6px}
+.sub{color:var(--muted);margin:0 0 18px}
+.map{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:14px;overflow-x:auto}
+.map svg{display:block;min-width:640px;width:100%;height:auto}
+.map text{font-family:"Nunito Sans",sans-serif;fill:var(--text)}
+.prog{display:flex;align-items:center;gap:12px;margin:14px 0 0;font-weight:700}
+.bar{flex:1;height:12px;background:var(--line);border-radius:9px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--c1),var(--c2));transition:width .4s}
+details{background:var(--card);border:1px solid var(--line);border-left:8px solid var(--k);border-radius:16px;margin:14px 0;padding:0}
+summary{cursor:pointer;list-style:none;padding:16px 18px;display:flex;gap:14px;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary:focus-visible,input:focus-visible,button:focus-visible{outline:3px solid var(--c1);outline-offset:2px}
+.em{font-size:1.8rem}
+summary h3{font-size:1.25rem}
+summary small{display:block;color:var(--muted);font-size:.95rem}
+summary::after{content:"+";margin-left:auto;font-size:1.6rem;color:var(--k);transition:transform .25s}
+details[open] summary::after{transform:rotate(45deg)}
+.body{padding:0 18px 18px}
+.say{background:color-mix(in srgb,var(--k) 12%,transparent);border-radius:12px;padding:10px 14px;margin:0 0 12px}
+ul.chk{list-style:none;padding:0;margin:0}
+ul.chk li{padding:7px 0;border-bottom:1px dashed var(--line)}
+ul.chk li:last-child{border:0}
+label{display:flex;gap:10px;align-items:flex-start;cursor:pointer}
+input[type=checkbox]{width:20px;height:20px;margin-top:3px;accent-color:var(--k);flex:none}
+label b{font-weight:700}
+.loop{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-top:6px}
+.loop div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px;text-align:center;font-weight:700}
+.loop span{display:block;font-weight:400;font-size:.88rem;color:var(--muted)}
+.chart{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px}
+.row{display:grid;grid-template-columns:130px 1fr 44px;gap:10px;align-items:center;margin:9px 0;font-weight:600;font-size:.95rem}
+.row div{height:20px;border-radius:7px;background:var(--line);overflow:hidden}
+.row div i{display:block;height:100%;border-radius:7px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.res{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px}
+.res b{display:block}
+.res span{color:var(--muted);font-size:.93rem}
+.nt{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin:10px 0}
+.nc{background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+.nc h4{margin:0 0 4px;font:800 1rem "Bricolage Grotesque",system-ui,sans-serif;color:var(--k)}
+.nc p{margin:0;font-size:.95rem}
+pre{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:12px;overflow-x:auto;font-size:.84rem;line-height:1.5;margin:10px 0}
+code{font-family:ui-monospace,Menlo,Consolas,monospace}
+.viz{background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:10px;margin:10px 0;overflow-x:auto}
+.viz svg{display:block;width:100%;min-width:300px;max-width:460px;margin:0 auto;height:auto}
+.viz text{fill:var(--text);font:700 12px "Nunito Sans",sans-serif}
+.cap{font-size:.88rem;color:var(--muted);margin:4px 0 0;text-align:center}
+.sp{display:flex;height:34px;border-radius:10px;overflow:hidden;font-weight:700;color:#fff;font-size:.85rem;margin:8px 0}
+.sp span{display:flex;align-items:center;justify-content:center}
+.tw{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:.92rem}
+td,th{padding:7px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.cs{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.cs .res{border-top:6px solid var(--k)}
+.cs h3{font-size:1.1rem;margin-bottom:8px}
+.flow{display:flex;flex-wrap:wrap;gap:8px}
+.flow span{background:var(--card);border:1px solid var(--line);border-radius:99px;padding:6px 14px;font-weight:700;font-size:.92rem}
+.flow span:not(:last-child)::after{content:" ›";color:var(--muted)}
+.tip{background:var(--c1);color:#fff;border-radius:18px;padding:20px 22px;margin-top:40px}
+.tip h2{color:#fff}
+:root[data-theme="dark"] .tip,.dk .tip{color:#0e1325}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .tip{color:#0e1325}:root:not([data-theme="light"]) .tip h2{color:#0e1325}}
+@media (max-width:520px){.row{grid-template-columns:96px 1fr 40px;font-size:.85rem}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+<h1>Your AI / ML / Data Science roadmap</h1>
+<p>Six stages, in plain language. Tick things off as you learn them, and open each stage to see what it means with simple examples.</p>
+<span class="tag">Python ✓ you’re here</span><span class="tag">~6–12 months at a steady pace</span><span class="tag">Projects beat tutorials</span>
+</header>
+
+<section>
+<h2>The big picture</h2>
+<p class="sub">Think of it as a path. Each stop builds on the one before.</p>
+<div class="map">
+<svg viewBox="0 0 900 250" role="img" aria-label="Roadmap with six stops: Tools, Math, Machine Learning, Deep Learning, Specialize, Ship it">
+<path d="M60 170 C150 40,230 40,300 120 S450 200,520 110 S680 30,840 130" fill="none" stroke="var(--line)" stroke-width="10" stroke-linecap="round"/>
+<path d="M60 170 C150 40,230 40,300 120 S450 200,520 110 S680 30,840 130" fill="none" stroke="var(--c1)" stroke-width="3" stroke-dasharray="2 12" stroke-linecap="round"/>
+<g text-anchor="middle" font-size="15" font-weight="700">
+<circle cx="60" cy="170" r="24" fill="var(--c1)"/><text x="60" y="177" fill="#fff" style="fill:#fff">1</text><text x="60" y="218">Tools</text>
+<circle cx="190" cy="62" r="24" fill="var(--c2)"/><text x="190" y="69" style="fill:#fff">2</text><text x="190" y="28">Math</text>
+<circle cx="330" cy="140" r="24" fill="var(--c3)"/><text x="330" y="147" style="fill:#fff">3</text><text x="330" y="190">Machine Learning</text>
+<circle cx="520" cy="110" r="24" fill="var(--c4)"/><text x="520" y="117" style="fill:#fff">4</text><text x="520" y="160">Deep Learning</text>
+<circle cx="690" cy="62" r="24" fill="var(--c5)"/><text x="690" y="69" style="fill:#fff">5</text><text x="690" y="28">Specialize</text>
+<circle cx="840" cy="130" r="24" fill="var(--c6)"/><text x="840" y="137" style="fill:#fff">6</text><text x="840" y="180">Ship it</text>
+</g>
+</svg>
+</div>
+<div class="prog"><span id="pct">0%</span><div class="bar"><i id="fill"></i></div><span id="cnt">0 / 0</span></div>
+</section>
+
+<section>
+<h2>Stage by stage</h2>
+<p class="sub">Tap a stage to open it.</p>
+
+<details open style="--k:var(--c1)"><summary><span class="em">🧰</span><div><h3>1. Tools: your workshop</h3><small>Before building, get your tools in order</small></div></summary><div class="body">
+<p class="say">Like a chef learning knives before cooking. You’ll use these every single day.</p>
+<ul class="chk">
+<li><label><input type="checkbox"><span><b>Python basics:</b> functions, classes, files, virtual environments</span></label></li>
+<li><label><input type="checkbox"><span><b>NumPy:</b> fast math on lists of numbers (think Excel on steroids)</span></label></li>
+<li><label><input type="checkbox"><span><b>Pandas:</b> load, clean and slice tables of data</span></label></li>
+<li><label><input type="checkbox"><span><b>Matplotlib / Seaborn:</b> turn numbers into charts</span></label></li>
+<li><label><input type="checkbox"><span><b>Git + GitHub:</b> save versions of your work and show it off</span></label></li>
+<li><label><input type="checkbox"><span><b>Jupyter / Colab:</b> notebooks where code, charts and notes live together</span></label></li>
+<li><label><input type="checkbox"><span><b>SQL:</b> ask databases questions; most data jobs need it</span></label></li>
+</ul></div></details>
+
+<details style="--k:var(--c2)"><summary><span class="em">📐</span><div><h3>2. Math: the engine under the hood</h3><small>Learn it alongside ML, not before</small></div></summary><div class="body">
+<p class="say">You don’t need to be a mathematician. You need the intuition for what the model is doing.</p>
+<ul class="chk">
+<li><label><input type="checkbox"><span><b>Linear algebra:</b> vectors and matrices. An image is just a grid of numbers.</span></label></li>
+<li><label><input type="checkbox"><span><b>Calculus:</b> derivatives and gradients. This is how a model knows which way to improve, like feeling for the downhill direction in fog.</span></label></li>
+<li><label><input type="checkbox"><span><b>Probability:</b> how likely is something? Bayes’ theorem updates beliefs with new evidence.</span></label></li>
+<li><label><input type="checkbox"><span><b>Statistics:</b> mean, variance, distributions, hypothesis testing</span></label></li>
+</ul></div></details>
+
+<details style="--k:var(--c3)"><summary><span class="em">🤖</span><div><h3>3. Core machine learning</h3><small>Teaching computers by showing examples</small></div></summary><div class="body">
+<p class="say">Instead of writing rules (“if email has ‘prize’ then spam”), you show the computer thousands of emails and let it find the rules.</p>
+<ul class="chk">
+<li><label><input type="checkbox"><span><b>Supervised learning:</b> learn from labeled examples. Linear and logistic regression, decision trees, random forests, SVM, k-NN.</span></label></li>
+<li><label><input type="checkbox"><span><b>Unsupervised learning:</b> find patterns with no labels. k-means clustering, PCA.</span></label></li>
+<li><label><input type="checkbox"><span><b>Evaluation:</b> train/test split, cross-validation, overfitting (memorizing instead of learning), precision, recall, F1, ROC-AUC</span></label></li>
+<li><label><input type="checkbox"><span><b>Data cleaning + feature engineering:</b> the unglamorous part that decides results</span></label></li>
+<li><label><input type="checkbox"><span><b>scikit-learn:</b> the library that ties all of this together</span></label></li>
+</ul>
+<h3 style="margin:16px 0 8px;font-size:1.05rem">How a model learns (the loop)</h3>
+<div class="loop">
+<div>📊 Data<span>examples to learn from</span></div>
+<div>🧠 Guess<span>model predicts</span></div>
+<div>❌ Error<span>how wrong was it?</span></div>
+<div>🔧 Adjust<span>tweak the settings</span></div>
+<div>🔁 Repeat<span>thousands of times</span></div>
+</div></div></details>
+
+<details style="--k:var(--c4)"><summary><span class="em">🧬</span><div><h3>4. Deep learning</h3><small>Neural networks: the tech behind modern AI</small></div></summary><div class="body">
+<p class="say">Layers of tiny decision-makers, loosely inspired by the brain. Stack enough of them and they can recognize faces, translate languages and write text.</p>
+<ul class="chk">
+<li><label><input type="checkbox"><span><b>Neural network basics:</b> backpropagation (how errors flow backward to fix weights), activation functions, optimizers</span></label></li>
+<li><label><input type="checkbox"><span><b>PyTorch</b> (most popular in research and industry) or TensorFlow/Keras</span></label></li>
+<li><label><input type="checkbox"><span><b>CNNs:</b> for images</span></label></li>
+<li><label><input type="checkbox"><span><b>RNNs / LSTMs:</b> for sequences like text and time</span></label></li>
+<li><label><input type="checkbox"><span><b>Transformers:</b> the architecture behind ChatGPT, Claude and friends</span></label></li>
+<li><label><input type="checkbox"><span><b>Transfer learning:</b> borrow a pre-trained model and get great results with little data</span></label></li>
+</ul></div></details>
+
+<details style="--k:var(--c5)"><summary><span class="em">🎯</span><div><h3>5. Pick a specialty</h3><small>Choose one or two after the basics</small></div></summary><div class="body">
+<p class="say">Like choosing a major. Try a small project in each before deciding.</p>
+<ul class="chk">
+<li><label><input type="checkbox"><span><b>Computer vision:</b> image classification, object detection (e.g. spotting plant diseases from leaf photos)</span></label></li>
+<li><label><input type="checkbox"><span><b>NLP and LLMs:</b> transformers, fine-tuning, RAG (giving an AI your own documents to answer from)</span></label></li>
+<li><label><input type="checkbox"><span><b>Time series:</b> forecasting sales, weather, stock-like data</span></label></li>
+<li><label><input type="checkbox"><span><b>Recommender systems:</b> “you might also like…”</span></label></li>
+<li><label><input type="checkbox"><span><b>Reinforcement learning:</b> learning by trial and reward, like training a game-playing agent</span></label></li>
+</ul></div></details>
+
+<details style="--k:var(--c6)"><summary><span class="em">🚀</span><div><h3>6. Ship it: real-world skills</h3><small>Turn knowledge into something people can see</small></div></summary><div class="body">
+<p class="say">A model sitting in a notebook helps nobody. Show it, share it, explain it.</p>
+<ul class="chk">
+<li><label><input type="checkbox"><span><b>Data storytelling:</b> explain results so a non-technical person gets it</span></label></li>
+<li><label><input type="checkbox"><span><b>Portfolio projects</b> on GitHub with a clear README</span></label></li>
+<li><label><input type="checkbox"><span><b>Deployment:</b> Streamlit (easiest), FastAPI, Docker</span></label></li>
+<li><label><input type="checkbox"><span><b>Research papers + Kaggle:</b> read, compete, learn from others’ notebooks</span></label></li>
+</ul></div></details>
+</section>
+
+<section>
+<h2>Where the time really goes</h2>
+<p class="sub">Typical split of effort in a real ML project. Surprise: the fancy model is the small part.</p>
+<div class="chart" role="img" aria-label="Bar chart: data cleaning 60 percent, feature work 15, modeling 10, evaluation 10, deployment 5">
+<div class="row">Cleaning data<div><i style="width:60%;background:var(--c1)"></i></div>~60%</div>
+<div class="row">Feature work<div><i style="width:15%;background:var(--c2)"></i></div>~15%</div>
+<div class="row">Modeling<div><i style="width:10%;background:var(--c3)"></i></div>~10%</div>
+<div class="row">Evaluating<div><i style="width:10%;background:var(--c4)"></i></div>~10%</div>
+<div class="row">Deploying<div><i style="width:5%;background:var(--c5)"></i></div>~5%</div>
+<p class="sub" style="margin:10px 0 0;font-size:.9rem">Rough illustration, not exact data. It varies by project, but “data work is most of the work” is widely true.</p>
+</div>
+</section>
+
+<section id="notes">
+<h2>Study notes</h2>
+<p class="sub">Simple notes for every stage. Read them next to the checklist above.</p>
+
+<details style="--k:var(--c1)"><summary><span class="em">🧰</span><div><h3>Notes 1: Tools</h3><small>NumPy, Pandas, Git, SQL</small></div></summary><div class="body">
+<div class="nt">
+<div class="nc"><h4>NumPy</h4><p>An array is a fast grid of numbers. Maths runs on the whole grid at once: <code>a * 2</code> doubles every value, no loop needed.</p></div>
+<div class="nc"><h4>Pandas</h4><p>A DataFrame is a table. Rows are examples, columns are features. Most of your time goes into filtering, fixing and grouping it.</p></div>
+<div class="nc"><h4>Git</h4><p>Take a snapshot with <code>add</code> then <code>commit</code>, upload with <code>push</code>. You can always travel back to an old version.</p></div>
+<div class="nc"><h4>SQL</h4><p>Ask a database a question: pick columns, choose a table, filter rows, then group them.</p></div>
+</div>
+<pre><code>import pandas as pd
+df = pd.read_csv("data.csv")     # load
+df.head(); df.info()             # peek + types
+df.isna().sum()                  # count missing values
+df["age"] = df["age"].fillna(df["age"].median())
+df.groupby("city")["sales"].mean()
+
+-- SQL version
+SELECT city, AVG(sales) FROM orders GROUP BY city;</code></pre>
+</div></details>
+
+<details style="--k:var(--c2)"><summary><span class="em">📐</span><div><h3>Notes 2: Math</h3><small>Just the intuition you need</small></div></summary><div class="body">
+<div class="nt">
+<div class="nc"><h4>Vector</h4><p>A list of numbers, like a house: [3 bedrooms, 120 m², 2 baths]. Every example in ML becomes a vector.</p></div>
+<div class="nc"><h4>Matrix</h4><p>A table of numbers. A photo is a matrix of pixel brightness. Models multiply matrices all day.</p></div>
+<div class="nc"><h4>Derivative</h4><p>How fast something changes. If the error drops when you nudge a setting up, the derivative tells you so.</p></div>
+<div class="nc"><h4>Probability</h4><p>A number from 0 to 1 for how likely something is. Bayes: new evidence updates your belief.</p></div>
+<div class="nc"><h4>Mean and variance</h4><p>Mean is the average. Variance says how spread out values are around it.</p></div>
+</div>
+<div class="viz"><svg viewBox="0 0 320 150" role="img" aria-label="Gradient descent: a ball rolls down a curve toward the minimum">
+<path d="M20 20 Q160 220 300 20" fill="none" stroke="var(--c2)" stroke-width="4"/>
+<path d="M62 71 L104 104 L138 117 L160 120" fill="none" stroke="var(--muted)" stroke-dasharray="4 4"/>
+<circle cx="62" cy="71" r="7" fill="var(--c4)"/><circle cx="104" cy="104" r="6" fill="var(--c4)"/><circle cx="138" cy="117" r="5" fill="var(--c4)"/><circle cx="160" cy="120" r="6" fill="var(--c1)"/>
+<text x="10" y="62">start: big error</text><text x="112" y="142">minimum: small error</text>
+</svg><p class="cap">Gradient descent: take small steps downhill until the error stops shrinking. This is how almost every model learns.</p></div>
+</div></details>
+
+<details style="--k:var(--c3)"><summary><span class="em">🤖</span><div><h3>Notes 3: Machine learning</h3><small>Types, splitting, overfitting, metrics</small></div></summary><div class="body">
+<div class="nt">
+<div class="nc"><h4>Regression</h4><p>Predict a number: a house price, tomorrow’s temperature.</p></div>
+<div class="nc"><h4>Classification</h4><p>Predict a category: spam or not, healthy leaf or diseased.</p></div>
+<div class="nc"><h4>Clustering</h4><p>No labels given. The model groups similar things, like sorting customers into types.</p></div>
+<div class="nc"><h4>Overfitting</h4><p>The model memorizes the practice questions and fails the real exam. Underfitting is the opposite: too simple to learn anything.</p></div>
+</div>
+<p style="margin:12px 0 0;font-weight:700">Always split your data</p>
+<div class="sp"><span style="flex:80;background:#3b5bdb">Train 80%: the model learns here</span><span style="flex:20;background:#c2255c">Test 20%</span></div>
+<p class="cap" style="text-align:left">Never let the model peek at the test set. It’s your honest final exam.</p>
+<div class="viz"><svg viewBox="0 0 320 160" role="img" aria-label="Training error keeps falling while validation error rises again after a sweet spot">
+<path d="M30 10 V130 H300" fill="none" stroke="var(--muted)"/>
+<path d="M30 35 C100 95,180 120,290 126" fill="none" stroke="var(--c1)" stroke-width="3"/>
+<path d="M30 45 C100 100,160 110,200 108 S260 80,290 45" fill="none" stroke="var(--c4)" stroke-width="3"/>
+<line x1="190" y1="12" x2="190" y2="130" stroke="var(--c2)" stroke-dasharray="4 4"/>
+<text x="150" y="9">sweet spot</text><text x="215" y="122" style="fill:var(--c1)">training error</text><text x="240" y="38" style="fill:var(--c4)">test error</text>
+<text x="130" y="152">model complexity →</text>
+</svg><p class="cap">Past the sweet spot the model memorizes noise: training error keeps dropping, test error climbs.</p></div>
+<div class="tw"><table><tr><th></th><th>Predicted yes</th><th>Predicted no</th></tr>
+<tr><th>Actually yes</th><td style="background:color-mix(in srgb,var(--c2) 25%,transparent)">TP: caught it</td><td style="background:color-mix(in srgb,var(--c4) 20%,transparent)">FN: missed it</td></tr>
+<tr><th>Actually no</th><td style="background:color-mix(in srgb,var(--c4) 20%,transparent)">FP: false alarm</td><td style="background:color-mix(in srgb,var(--c2) 25%,transparent)">TN: correctly ignored</td></tr></table></div>
+<p class="cap" style="text-align:left">The confusion matrix. Every classification metric comes from these four boxes.</p>
+<pre><code>from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import classification_report
+
+X_tr, X_te, y_tr, y_te = train_test_split(X, y, test_size=0.2, random_state=42)
+model = RandomForestClassifier().fit(X_tr, y_tr)
+print(classification_report(y_te, model.predict(X_te)))</code></pre>
+</div></details>
+
+<details style="--k:var(--c4)"><summary><span class="em">🧬</span><div><h3>Notes 4: Deep learning</h3><small>Neurons, layers, CNN, Transformers</small></div></summary><div class="body">
+<div class="nt">
+<div class="nc"><h4>Neuron</h4><p>Multiplies inputs by weights, adds a bias, then squeezes the result with an activation: <code>out = f(w·x + b)</code>.</p></div>
+<div class="nc"><h4>Backpropagation</h4><p>After a wrong guess, the error flows backward through the layers and tells each weight how to change.</p></div>
+<div class="nc"><h4>CNN</h4><p>Slides small filters over an image to find edges, then shapes, then objects.</p></div>
+<div class="nc"><h4>RNN / LSTM</h4><p>Reads a sequence step by step and keeps a memory of what came before.</p></div>
+<div class="nc"><h4>Transformer</h4><p>Uses attention: every word looks at every other word to decide what matters. It powers modern LLMs.</p></div>
+<div class="nc"><h4>Transfer learning</h4><p>Start from a model already trained on millions of images, then fine-tune it on your small dataset.</p></div>
+</div>
+<div class="viz"><svg id="net" viewBox="0 0 320 170" role="img" aria-label="A small neural network: input, hidden and output layers"></svg><p class="cap">Data enters on the left, gets transformed by hidden layers, and a prediction comes out on the right.</p></div>
+<pre><code>import torch.nn as nn
+model = nn.Sequential(nn.Linear(10, 32), nn.ReLU(), nn.Linear(32, 2))
+# training loop: predict → loss → backward → step
+loss = loss_fn(model(x), y)
+optimizer.zero_grad(); loss.backward(); optimizer.step()</code></pre>
+</div></details>
+
+<details style="--k:var(--c5)"><summary><span class="em">🎯</span><div><h3>Notes 5: Specialties and shipping</h3><small>Where to go next</small></div></summary><div class="body">
+<div class="nt">
+<div class="nc"><h4>Computer vision</h4><p>Classify, detect or segment images. Start with transfer learning.</p></div>
+<div class="nc"><h4>NLP and LLMs</h4><p>Text in, meaning out. RAG lets an AI answer from your own documents.</p></div>
+<div class="nc"><h4>Time series</h4><p>Data ordered by time. Never shuffle it: train on the past, test on the future.</p></div>
+<div class="nc"><h4>Recommenders</h4><p>Suggest items from what similar people liked.</p></div>
+<div class="nc"><h4>Reinforcement learning</h4><p>An agent tries actions and learns from rewards.</p></div>
+<div class="nc"><h4>Deployment</h4><p>Wrap the model in an app (Streamlit) or an API (FastAPI), then package it with Docker.</p></div>
+</div></div></details>
+</section>
+
+<section id="cheat">
+<h2>Cheat sheet</h2>
+<p class="sub">The one-page version. Screenshot it or keep this tab open.</p>
+<h3 style="font-size:1.1rem;margin-bottom:8px">A typical project, start to finish</h3>
+<div class="flow"><span>Question</span><span>Collect data</span><span>Clean</span><span>Explore</span><span>Split</span><span>Train</span><span>Evaluate</span><span>Deploy</span></div>
+<div class="cs" style="margin-top:16px">
+<div class="res" style="--k:var(--c1)"><h3>Which algorithm first?</h3><div class="tw"><table>
+<tr><td>Predict a number</td><td>Linear regression, random forest</td></tr>
+<tr><td>Predict a category</td><td>Logistic regression, random forest</td></tr>
+<tr><td>Group similar items</td><td>k-means</td></tr>
+<tr><td>Too many columns</td><td>PCA</td></tr>
+<tr><td>Images</td><td>CNN with transfer learning</td></tr>
+<tr><td>Text</td><td>Transformers</td></tr></table></div></div>
+<div class="res" style="--k:var(--c2)"><h3>Metrics in plain words</h3><div class="tw"><table>
+<tr><td><b>Accuracy</b></td><td>correct ÷ all. Misleading if classes are unbalanced.</td></tr>
+<tr><td><b>Precision</b></td><td>Of everything I called yes, how much was right?</td></tr>
+<tr><td><b>Recall</b></td><td>Of all real yes cases, how many did I find?</td></tr>
+<tr><td><b>F1</b></td><td>Balance of precision and recall</td></tr>
+<tr><td><b>MAE / RMSE</b></td><td>Average error for numbers (RMSE punishes big misses)</td></tr>
+<tr><td><b>R²</b></td><td>How much variation the model explains</td></tr></table></div></div>
+<div class="res" style="--k:var(--c4)"><h3>Model not working? Fix it</h3><div class="tw"><table>
+<tr><td>Train bad, test bad</td><td>Underfit: bigger model, better features, train longer</td></tr>
+<tr><td>Train great, test bad</td><td>Overfit: more data, simpler model, regularization, dropout</td></tr>
+<tr><td>Test great, real life bad</td><td>Data leak or unrepresentative data. Recheck your split.</td></tr></table></div></div>
+<div class="res" style="--k:var(--c3)"><h3>Golden rules</h3><div class="tw"><table>
+<tr><td>1</td><td>Look at your data before modelling</td></tr>
+<tr><td>2</td><td>Start with a simple baseline</td></tr>
+<tr><td>3</td><td>Split first, then preprocess</td></tr>
+<tr><td>4</td><td>Change one thing at a time</td></tr>
+<tr><td>5</td><td>Judge on data the model never saw</td></tr></table></div></div>
+</div>
+</section>
+<script>
+(function(){var s=document.getElementById('net');if(!s)return;var L=[[30,3],[160,4],[290,2]],c=['var(--c1)','var(--c5)','var(--c2)'],h='',P=[];
+L.forEach(function(l,i){var n=[];for(var j=0;j<l[1];j++){n.push([l[0],85+(j-(l[1]-1)/2)*38])}P.push(n)});
+for(var i=0;i<2;i++)P[i].forEach(function(a){P[i+1].forEach(function(b){h+='<line x1="'+a[0]+'" y1="'+a[1]+'" x2="'+b[0]+'" y2="'+b[1]+'" stroke="var(--line)" stroke-width="1.5"/>'})});
+P.forEach(function(n,i){n.forEach(function(p){h+='<circle cx="'+p[0]+'" cy="'+p[1]+'" r="11" fill="'+c[i]+'"/>'})});
+h+='<text x="8" y="160">input</text><text x="128" y="160">hidden</text><text x="262" y="160">output</text>';s.innerHTML=h})();
+</script>
+
+<section>
+<h2>Good places to learn</h2>
+<div class="grid">
+<div class="res"><b>Machine Learning Specialization</b><span>Andrew Ng, Coursera. Gentle and clear first ML course.</span></div>
+<div class="res"><b>Practical Deep Learning</b><span>fast.ai. Build first, theory later.</span></div>
+<div class="res"><b>3Blue1Brown</b><span>YouTube. Beautiful visuals for linear algebra, calculus and neural nets.</span></div>
+<div class="res"><b>Kaggle Learn</b><span>Free bite-size courses with a built-in notebook.</span></div>
+<div class="res"><b>Hands-On Machine Learning</b><span>Aurélien Géron. The go-to book with code.</span></div>
+</div>
+</section>
+
+<div class="tip">
+<h2>One rule to remember</h2>
+<p style="margin:8px 0 0">Don’t just watch tutorials. After each topic, build something small with a real dataset. Projects teach more than lectures, and they become your portfolio.</p>
+</div>
+</div>
+<script>
+(function(){
+var boxes=[].slice.call(document.querySelectorAll('input[type=checkbox]'));
+var KEY='aiml-roadmap-checks';
+var saved=[];
+try{saved=JSON.parse(localStorage.getItem(KEY)||'[]')}catch(e){saved=[]}
+boxes.forEach(function(b,i){
+ if(saved.indexOf(i)>-1)b.checked=true;
+ b.addEventListener('change',update);
+});
+function update(){
+ var done=0,ids=[];
+ boxes.forEach(function(b,i){if(b.checked){done++;ids.push(i)}});
+ var p=Math.round(done/boxes.length*100);
+ document.getElementById('pct').textContent=p+'%';
+ document.getElementById('fill').style.width=p+'%';
+ document.getElementById('cnt').textContent=done+' / '+boxes.length;
+ try{localStorage.setItem(KEY,JSON.stringify(ids))}catch(e){}
+}
+update();
+})();
+</script>
+</body>
+</html>
